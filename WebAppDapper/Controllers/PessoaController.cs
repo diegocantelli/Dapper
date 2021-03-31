@@ -82,5 +82,31 @@ namespace WebAppDapper.Controllers
                 return Ok(query);
             }
         }
+
+        [HttpPost]
+        public async Task<ActionResult> Post(Pessoa pessoa)
+        {
+            using (SqlConnection connection = new SqlConnection(
+                _config.GetConnectionString("ExemplosDapper")))
+            {
+                //Cria a instrução necessária para o insert
+                var sql = $" INSERT INTO dbo.tblPerson ( Id, Name, Email, GenderId ) " +
+                    $" VALUES (@id, @name, @email, @genderId)";
+
+                //Recebe os dados vindos da requisição e instancia um novo objeto
+                var newPessoa = new Pessoa
+                {
+                    Id = pessoa.Id,
+                    Name = pessoa.Name,
+                    Email = pessoa.Email,
+                    GenderId = pessoa.GenderId
+                };
+
+                //Para executar comando de Insert e update, usa-se o comando ExecuteAsync
+                var query = await connection.ExecuteAsync(sql, newPessoa);
+
+                return Ok(query);
+            }
+        }
     }
 }
