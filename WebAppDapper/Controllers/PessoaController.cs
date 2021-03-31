@@ -35,5 +35,25 @@ namespace WebAppDapper.Controllers
                 return Ok(query);
             }
         }
+
+        [HttpGet("details/{id:int}")]
+        public ActionResult<IEnumerable<Pessoa>> GetPessoaById(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(
+                _config.GetConnectionString("ExemplosDapper")))
+            {
+                //connection.Query -> Query é o método de extensão do DAPPER. Deve ser passado
+                // o tipo que o resultado da query será mapeado, no caso será mapeado para um objeto 
+                // do tipo Pessoa
+                var query = connection.Query<Pessoa>($" SELECT Id, Name, Email, GenderId " +
+                    $"FROM tblPerson " +
+                    $" WHERE Id = @Id",
+                    //Passage de parâmetro. Caso houvesse mais parâmetros, bastava passá-los separando
+                    // com vírgulas
+                    new { Id = id});
+
+                return Ok(query);
+            }
+        }
     }
 }
