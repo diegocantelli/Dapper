@@ -55,5 +55,32 @@ namespace WebAppDapper.Controllers
                 return Ok(query);
             }
         }
+
+        [HttpGet("dynamicQuery")]
+        public ActionResult<IEnumerable<Pessoa>> GetPersonById([FromQuery]bool getPersonWithId1)
+        {
+            using (SqlConnection connection = new SqlConnection(
+                _config.GetConnectionString("ExemplosDapper")))
+            {
+                var sql = $" SELECT Id, Name, Email, GenderId " +
+                    $"FROM tblPerson ";
+
+                //Possibilitando a passagem de parâmetros dinâmicos
+                var dynamicParameter = new DynamicParameters();
+
+                if (getPersonWithId1)
+                {
+                    sql += " WHERE Id = @Id";
+                    dynamicParameter.Add("Id", 1);
+                }
+
+
+                //O parâmetro dinâmico é passado como parâmetro do método Query do Dapper
+                var query = connection.Query<Pessoa>(sql, dynamicParameter);
+
+                
+                return Ok(query);
+            }
+        }
     }
 }
