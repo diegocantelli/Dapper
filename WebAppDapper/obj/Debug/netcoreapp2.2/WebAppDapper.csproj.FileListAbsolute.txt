@@ -1,0 +1,11 @@
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\bin\Debug\netcoreapp2.2\WebAppDapper.deps.json
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\bin\Debug\netcoreapp2.2\WebAppDapper.runtimeconfig.json
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\bin\Debug\netcoreapp2.2\WebAppDapper.runtimeconfig.dev.json
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\bin\Debug\netcoreapp2.2\WebAppDapper.dll
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\obj\Debug\netcoreapp2.2\WebAppDapper.csprojAssemblyReference.cache
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\obj\Debug\netcoreapp2.2\WebAppDapper.csproj.CoreCompileInputs.cache
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\obj\Debug\netcoreapp2.2\WebAppDapper.RazorAssemblyInfo.cache
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\obj\Debug\netcoreapp2.2\WebAppDapper.RazorAssemblyInfo.cs
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\obj\Debug\netcoreapp2.2\WebAppDapper.AssemblyInfoInputs.cache
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\obj\Debug\netcoreapp2.2\WebAppDapper.AssemblyInfo.cs
+C:\Users\pc-cantelli\Documents\Programação 2018\Dapper\CodingNights\WebAppDapper\WebAppDapper\obj\Debug\netcoreapp2.2\WebAppDapper.RazorTargetAssemblyInfo.cache
