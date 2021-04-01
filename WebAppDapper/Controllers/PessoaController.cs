@@ -22,6 +22,36 @@ namespace WebAppDapper.Controllers
             _config = configuration;
         }
 
+        [HttpGet("multimapping")]
+        public ActionResult<IEnumerable<Pessoa>> PessoasMultiMapping()
+        {
+            var sql = $" SELECT p.Id, p.Name, p.Email, p.GenderId, g.Gender " +
+                " FROM tblPerson p " +
+                " INNER JOIN tblGender g on (p.GenderId = g.Id) ";
+
+            using (SqlConnection connection = new SqlConnection(
+                _config.GetConnectionString("ExemplosDapper")))
+            {
+                
+                var query = connection
+                    //Query<Pessoa, Genero, Pessoa> -> 
+                    // 1 parametro -> qual o objeto pai
+                    // 2 parametro -> qual o objeto filho
+                    // 3 parametro -> qual será objeto retornado
+                    .Query<Pessoa, Genero, Pessoa>(sql, 
+                        //Aqui é uma função explicitando como devem ser relacionados os objetos
+                        // em seguida é retornado um objeto do tipo pessoa
+                        (pessoa, genero) => { pessoa.Genero = genero; return pessoa; },
+
+                        //splitOn -> Especifica por qual chave deverá ser feita a distinção dos registros
+                        // caso a chave seja chamado "id" ou "Id", não é necessário informar nada
+                        // Pode ser informada mais de uma chave. Ex: "GenderId, PessoaId" 
+                        splitOn: "GenderId");
+
+                return Ok(query);
+            }
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<Pessoa>> GetPessoas()
         {
